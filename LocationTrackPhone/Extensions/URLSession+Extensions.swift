@@ -1,3 +1,5 @@
+
+
 import Foundation
 
 enum NetworkError: Error {
@@ -16,7 +18,7 @@ extension URLSession {
     with request: URLRequest,
     success: @escaping (C) -> Void,
     failure: @escaping (Error) -> Void
-  ) {
+    ) {
     dataRequest(
       with: request,
       success: { data in
@@ -35,7 +37,7 @@ extension URLSession {
     with request: URLRequest,
     success: @escaping (Data) -> Void,
     failure: @escaping (Error) -> Void
-  ) {
+    ) {
     dataTask(with: request) { data, response, error in
       DispatchQueue.main.async {
         if let error = error {
@@ -51,7 +53,7 @@ extension URLSession {
         let data = data ?? Data()
         success(data)
       }
-    }.resume()
+      }.resume()
   }
 }
 

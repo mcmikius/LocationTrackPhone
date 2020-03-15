@@ -14,7 +14,7 @@ final class WebServices {
   static func create(
     success: @escaping (TrackingSession) -> Void,
     failure: @escaping (Error) -> Void
-  ) {
+    ) {
     var request = URLRequest(url: createURL)
     request.httpMethod = "POST"
     URLSession.shared.objectRequest(with: request, success: success, failure: failure)
@@ -24,7 +24,7 @@ final class WebServices {
     _ location: Location,
     for session: TrackingSession,
     completion: @escaping (Bool) -> Void
-  ) {
+    ) {
     let url = updateURL.appendingPathComponent(session.id)
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
@@ -46,7 +46,7 @@ final class WebServices {
   static func close(
     _ session: TrackingSession,
     completion: @escaping (Bool) -> Void
-  ) {
+    ) {
     let url = closeURL.appendingPathComponent(session.id)
     var request = URLRequest(url: url)
     request.httpMethod = "POST"

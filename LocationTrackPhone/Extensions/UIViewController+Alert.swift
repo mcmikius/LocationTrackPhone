@@ -1,3 +1,5 @@
+
+
 import UIKit
 
 extension UIViewController {
@@ -5,7 +7,7 @@ extension UIViewController {
     title: String,
     message: String = "",
     then completion: @escaping () -> Void = {}
-  ) {
+    ) {
     let alertController = UIAlertController(
       title: title,
       message: message,
